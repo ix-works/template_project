@@ -6,6 +6,9 @@
 # ==== kişisel / runtime ====
 .claude/settings.local.json
 .claude/active_package
+.claude/.statusline_vpn_cache
+.claude/.mcp_active_system
+.claude/.current_session
 # makine-lokal baseline (session_start üretir; commit'lenmez)
 .claude/behavior-manifest.json
 # genericize blocklist: müşteri/sistem/kişi adları — ASLA commit'lenmez
