@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "sap-adt": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_servers.sap_adt.server"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONPATH": "${CLAUDE_PROJECT_DIR:-.}/core"
+      }
+    }
+  }
+}

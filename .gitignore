@@ -1,0 +1,20 @@
+# ==== SIZINTI KİLİDİ (ADR 0020 — core içeriği proje reposuna GİREMEZ) ====
+/core/
+.claude/agents/
+.claude/skills/
+.claude/commands/
+# ==== kişisel / runtime ====
+.claude/settings.local.json
+.claude/active_package
+# makine-lokal baseline (session_start üretir; commit'lenmez)
+.claude/behavior-manifest.json
+# genericize blocklist: müşteri/sistem/kişi adları — ASLA commit'lenmez
+.claude/genericize-blocklist.txt
+.conn_adt
+conn/*.env
+CLAUDE.local.md
+.tmp/
+*.pyc
+__pycache__/
+node_modules/
+sap_adt_debug.log

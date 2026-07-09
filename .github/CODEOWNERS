@@ -1,0 +1,43 @@
+# CODEOWNERS — template_project (referans iskelet)
+#
+# NİYE VAR: main'e giren değişiklik projenin davranışını (hook, permission, MCP) ve
+# iş kurallarını taşır. `main-pr-required` ruleset'i `require_code_owner_review=true`
+# ile koşar → aşağıdaki sahip onaylamadan hiçbir PR merge edilemez.
+#
+# NİYE TEAM, KİŞİ DEĞİL: bakımcı değişince bu dosyaya dokunulmaz. Ayrıca core reposunda
+# kişisel handle YASAK (`pre_tool_guard` Ö5/B9 — genericize kuralı); aynı deseni burada
+# da koruyoruz. Üyelik: https://github.com/orgs/ix-works/teams/core-maintainers
+#
+# ⚠ TEK-KİŞİ KİLİDİ: `require_code_owner_review` açıkken tek code-owner varsa, o kişi
+#   KENDİ PR'ını onaylayamaz (GitHub kuralı) → hiçbir PR merge edilemez. Çözüm:
+#   ruleset'e `bypass_actors: [{OrganizationAdmin, bypass_mode: pull_request}]` ekle.
+#   Bu bypass DAR: PR zorunlu kalır, main'e doğrudan push YOK, CI atlanamaz;
+#   yalnız "birinin onaylaması" şartı aşılır. (2026-07-09 dersi.)
+#
+# `*` BİLEREK YOK: sıradan kod/doküman PR'ları lidere takılmasın; onlar için
+# `required_approving_review_count=1` yeterli. Yalnız davranış-yüzeyi ve gate'ler
+# code-owner onayına bağlıdır.
+#
+# Kural sırası: SON eşleşen desen kazanır (gitignore'un tersi).
+
+# ── DAVRANIŞ YÜZEYİ — oturumun ne yapabileceğini belirler ────────────────────
+# Hook/permission/MCP değişikliği = bir güvenlik katmanının sessizce kalkması.
+CLAUDE.md                        @ix-works/core-maintainers
+**/CLAUDE.md                     @ix-works/core-maintainers
+CLAUDE.local.md                  @ix-works/core-maintainers
+.claude/**                       @ix-works/core-maintainers
+.mcp.json                        @ix-works/core-maintainers
+project.yaml                     @ix-works/core-maintainers
+scripts/hook_shim.py             @ix-works/core-maintainers
+
+# ── PROJE-ÖZEL GATE'LER + YÖNETİŞİM ─────────────────────────────────────────
+# Bir validator'ın sessizce 0 dosya taraması "[OK]" görünür (CORE-01 dersi).
+scripts/validators-local/**       @ix-works/core-maintainers
+governance/decisions/**           @ix-works/core-maintainers
+governance/deferred-triggers.md   @ix-works/core-maintainers
+
+# ── SAP BAĞLANTI / TIER (`.conn_adt` gitignore'lu; şablonlar korunur) ────────
+conn/**                          @ix-works/core-maintainers
+
+# ── CI + BU DOSYA (korumanın kendisi) ───────────────────────────────────────
+.github/**                       @ix-works/core-maintainers

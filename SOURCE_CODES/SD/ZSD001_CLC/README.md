@@ -1,0 +1,35 @@
+# ZSD001_CLC — Ornek paket — referans iskelet
+
+> **Modül:** SD | **Başlangıç:** 2026-07-09 | **Owner:** <OWNER>
+
+## İçerik
+
+| Dosya/Klasör | Amaç |
+|---|---|
+| `.rules.md` | Paket-spesifik kurallar (prefix, bağımlılık, istisna) |
+| `SPEC.md` | Fonksiyonel + teknik spesifikasyon |
+| `SESSION_NOTES.md` | Oturum kayıtları (canlı güncellenir) |
+| `cds/` | CDS view'ları (`.cds` kaynak + `.md` TD spec) |
+| `classes/` | ABAP class'lar (`.abap`) |
+| `programs/` | ABAP report'lar + include'lar |
+| `structures/` | DDIC struct'lar (`.ddls.asddls`) |
+| `tables/` | Z tablolar |
+| `functions/` | FUGR + FM'ler |
+| `ui/` | Fiori uygulamaları (paket başına) |
+| `docs/` | Ek doküman (FS/TS PDF, müşteri yazışmaları) |
+
+## SAP Bilgileri
+
+| | |
+|---|---|
+| SAP Sistemi | <SYSTEM_ID> |
+| Client | 100 |
+| Paket | `ZSD001_CLC` |
+| Transport | TBD (kullanıcı verecek) |
+| Geliştirme tipi | TBD (Fiori/Classic ABAP/Hibrit) |
+
+## İlgili
+
+- [`.rules.md`](.rules.md) — Bu paketin kuralları
+- [`SPEC.md`](SPEC.md) — FS+TS
+- [`../../governance/package-registry.md`](../../governance/package-registry.md) — Tüm paketler
