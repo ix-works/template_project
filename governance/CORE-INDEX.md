@@ -69,7 +69,7 @@
 - [`core/standards/09-packing-instruction-consumption.md`](../core/standards/09-packing-instruction-consumption.md) — SAP Ambalajlama Talimatı (Packing Instruction) TÜKETİMİ — Standart
 - [`core/standards/README.md`](../core/standards/README.md) — Standards — Kurumsal & Proje Standartları
 
-## `core/governance/decisions/` (21 dosya)
+## `core/governance/decisions/` (22 dosya)
 
 - [`core/governance/decisions/0001-tek-branch-main.md`](../core/governance/decisions/0001-tek-branch-main.md) — ADR 0001 — Tek Branch (Sadece `main`)
 - [`core/governance/decisions/0002-package-naming.md`](../core/governance/decisions/0002-package-naming.md) — ADR 0002 — Paket Adlandırma (ZSDxxx_CLC Suffix)
@@ -92,7 +92,8 @@
 - [`core/governance/decisions/0020-canli-cekirdek-junction-mimarisi.md`](../core/governance/decisions/0020-canli-cekirdek-junction-mimarisi.md) — ADR 0020 — Canlı çekirdek (DEV_CORE) + junction çoklu-proje mimarisi
 - [`core/governance/decisions/0021-kesin-yasaklar-fiziksel-damga.md`](../core/governance/decisions/0021-kesin-yasaklar-fiziksel-damga.md) — ADR 0021 — KESİN YASAKLAR: fiziksel damga + drift-guard (import'a bağlı değil)
 - [`core/governance/decisions/0022-intake-triage-gate.md`](../core/governance/decisions/0022-intake-triage-gate.md) — ADR 0022 — Intake Triage Gate (ITG)
+- [`core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md`](../core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md) — ADR 0023 — Hook kablolaması plugin'e TAŞINMAZ (fail-closed-on-absence ifade edilemez)
 
 ---
 
-**Toplam 72 dokuman.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 73 dokuman.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
