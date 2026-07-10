@@ -1,28 +1,19 @@
 # project.yaml — proje kimliği (PROJECT_BOOTSTRAP STEP 0 kararları;
 # profil alanları: core/profiles/ + CLAUDE.core.md §2)
 # Core script/validator'ları BU dosyadan okur — hard-code yok (K12).
-#
-# ⚠ Bu proje bir REFERANS İSKELETtir (bootstrap provası). Gerçek SAP sistemine
-#   bağlı DEĞİLDİR: `.conn_adt` yoktur, MCP çağrıları çalışmaz. Gerçek bir projede
-#   STEP 4'te `.conn_adt` doldurulur (bkz. core/claude/conn_adt.template).
 
+# ⚠ Bu bir REFERANS İSKELETTİR: aşağıdaki değerler DEMO'dur (gerçek sistem yok, .conn_adt yok).
+# Gerçek projede `init_project` bunları `__DOLDUR__` bırakır — STEP 4'te doldurulur.
+# Boş/geçersiz `sap_profile` → MCP tool yüzeyi fail-closed kesilir (D34d), validator CORE-moduna düşer.
 source_root: SOURCE_CODES      # kaynak-kod klasörü adı (K12)
 repo_mode: full                # full=GitHub+korumalar | local=yalnız git-init | none=git'siz (K13)
 sap_profile: s4_private        # ecc | s4_private | s4_public | btp_abap
-release: "2025"                # ecc+s4_private zorunlu
+release: "2025"                # ecc+s4_private zorunlu; public/btp'de kaldır
 # db: hana                     # yalnız ecc: hana | anydb
 cleancore_policy: balanced     # yalnız s4_private: strict | balanced | classic
 master_language: TR            # ADR 0005-D bu dille uygulanır (Z obje label'ları TAM bu dilde)
 
-# ── Davranış/guard config'leri ──
+# Davranış/guard config'leri:
 frozen_readonly_paths: []      # pre_tool_guard bu köklere YAZMAYI bloklar (örn. eski-dünya arşivi)
-# active_package: <PKG_FULL>   # oturum-başı bağlam (bootstrap_package sonrası doldurulur)
-
-# ── Namespace / paket gate'leri (ilk paket açılınca doldurulur) ──
-# sql_view_prefix: Z<MOD><NNN>_V_      # populate_cds_views namespace-gate'i (B-5)
-# cds_view_name_prefix: z<mod><nnn>_ddl_
-# package_exceptions: []              # "PKG:^REGEX" — paket-sınır istisnaları
-
-# ── Araç yolları (proje büyüdükçe doldurulur) ──
-# default_ui_root: SOURCE_CODES/<MOD>/<PKG>/ui
-# doctor_probe_object: <bir Z obje adı>   # ix_doctor canlı-sistem probu
+# sql_view_prefix: Z<MOD><NNN>_V_   # populate_cds_views namespace-gate'i (B-5)
+# package_prefixes: []         # paket-sınır validator'ları

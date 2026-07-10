@@ -34,21 +34,13 @@
 > yollar CORE köküne göredir. **Metodoloji araması DAİMA `path=core/` ile** (kök-Grep
 > core'u görmez — D29).
 
-> **⚠ BU PROJE BİR REFERANS İSKELETTİR.** `PROJECT_BOOTSTRAP.md` STEP 0–6'nın canlı
-> provası olarak açıldı; gerçek bir SAP sistemine **bağlı değildir** (`.conn_adt` yok,
-> MCP çağrıları çalışmaz). Yeni bir proje açarken buraya bakabilirsin — ama kopyalama:
-> `python core/scripts/init_project.py` ile **üret**. Repo public'tir; buraya müşteri
-> adı, SAP host/user, transport numarası **girmez**.
-
 ## PROJE KİMLİĞİ
 
-- **Profil:** `project.yaml` → `sap_profile: s4_private` · `release: "2025"` ·
-  `cleancore_policy: balanced` · `master_language: TR` · `source_root: SOURCE_CODES`
-- **SAP bağlantı:** YOK (iskelet). Gerçek projede: proje kökünde `.conn_adt`
-  (şablon: `core/claude/conn_adt.template`; çoklu-tier: `conn/` + `switch_tier.py`, ADR 0010).
-  Dosya `.gitignore`'ludur — kimlik bilgisi repoya **hiçbir zaman** girmez.
+- **Profil:** `project.yaml` → `sap_profile: <ecc|s4_private|s4_public|btp_abap>` ·
+  `release: "<REL>"` · `master_language: <ML>` · `source_root: SOURCE_CODES`
+- **SAP bağlantı:** `<PROJECT_ROOT>/.conn_adt` — Sistem: `<SYSTEM_ID>`, Client `<CLIENT>`,
+  User: `<SAP_USER>`
 - **Kaynak kod:** `SOURCE_CODES/<MODULE>/<PKG>/` (L4 kuralları: her pakette `.rules.md`)
-- **Repo:** `ix-works/template_project` (`repo_mode: full`, public — şablon olduğu için)
 
 ## PROJE-ÖZEL DOSYA İNDEKSİ
 

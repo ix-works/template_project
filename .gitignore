@@ -3,21 +3,60 @@
 .claude/agents/
 .claude/skills/
 .claude/commands/
-# ==== kişisel / runtime ====
-.claude/settings.local.json
-.claude/active_package
-.claude/.statusline_vpn_cache
-.claude/.mcp_active_system
-.claude/.current_session
-# makine-lokal baseline (session_start üretir; commit'lenmez)
-.claude/behavior-manifest.json
-# genericize blocklist: müşteri/sistem/kişi adları — ASLA commit'lenmez
-.claude/genericize-blocklist.txt
+.claude/rules/
+.claude/memory-seed/
+
+# ==== SIRLAR / KİMLİK — asla commit'lenmez ====
+# 2026-07-10 template provası: bu satırların ÇOĞU şablonda YOKTU; yalnız TD'de
+# birikmişti → yeni açılan her proje bağlantı-yedeğini, CSRF token'ını ve
+# proje-lokal kimlik dosyalarını COMMIT EDİYORDU.
 .conn_adt
 conn/*.env
+conn/.conn_adt.bak
+.csrf_token.json
+# genericize blocklist: müşteri/sistem/kişi adları — ASLA commit'lenmez
+.claude/genericize-blocklist.txt
+.claude/project.local.yaml
+
+# ==== kişisel / runtime state ====
+.claude/settings.local.json
+.claude/active_package
+.claude/cache/
+.claude/projects/
+.claude/worktrees/
+# makine-lokal davranış baseline (behavior_manifest üretir; commit'lenmez)
+.claude/behavior-manifest.json
+.claude/.current_session
+.claude/.session_fresh.json
+.claude/.statusline_vpn_cache
+.claude/.mcp_active_system
+.claude/.worktype_hinted.json
+.claude/.itg_shown.json
+**/.statusline_vpn_cache
+**/.mcp_active_system
 CLAUDE.local.md
 .tmp/
-*.pyc
-__pycache__/
-node_modules/
+scratchpad/
+TempScripts/
+mcp_servers/**/.cache/
+mcp_servers/**/audit.log
 sap_adt_debug.log
+
+# ==== derleme / araç artefaktları ====
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+node_modules/
+UI/node_modules/
+.playwright/
+.playwright-cli/
+.playwright-mcp/
+*.proposed.cds
+
+# ==== editör / OS ====
+*.swp
+*~
+~$*
+.DS_Store
+Thumbs.db

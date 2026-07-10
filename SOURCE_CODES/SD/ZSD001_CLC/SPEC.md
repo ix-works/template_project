@@ -1,6 +1,6 @@
-# ZSD001_CLC — Ornek paket — referans iskelet — Fonksiyonel + Teknik Spesifikasyon
+# ZSD001_CLC — Ornek paket (demo) — Fonksiyonel + Teknik Spesifikasyon
 
-> **Versiyon:** 0.1 (taslak) | **Tarih:** 2026-07-09 | **Hazırlayan:** <OWNER>
+> **Versiyon:** 0.1 (taslak) | **Tarih:** 2026-07-10 | **Hazırlayan:** <OWNER>
 
 ---
 

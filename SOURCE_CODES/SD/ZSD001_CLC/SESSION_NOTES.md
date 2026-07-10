@@ -4,7 +4,7 @@
 
 ---
 
-## OTURUM AÇILIŞ — 2026-07-09
+## OTURUM AÇILIŞ — 2026-07-10
 
 **Bağlam:**
 

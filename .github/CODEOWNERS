@@ -1,18 +1,21 @@
-# CODEOWNERS — template_project (referans iskelet)
+# CODEOWNERS — template_project  (init_project.py bunu üretir)
 #
 # NİYE VAR: main'e giren değişiklik projenin davranışını (hook, permission, MCP) ve
 # iş kurallarını taşır. `main-pr-required` ruleset'i `require_code_owner_review=true`
-# ile koşar → aşağıdaki sahip onaylamadan hiçbir PR merge edilemez.
+# ile koşarsa, aşağıdaki sahip onaylamadan hiçbir PR merge edilemez.
 #
-# NİYE TEAM, KİŞİ DEĞİL: bakımcı değişince bu dosyaya dokunulmaz. Ayrıca core reposunda
-# kişisel handle YASAK (`pre_tool_guard` Ö5/B9 — genericize kuralı); aynı deseni burada
-# da koruyoruz. Üyelik: https://github.com/orgs/ix-works/teams/core-maintainers
-#
-# ⚠ TEK-KİŞİ KİLİDİ: `require_code_owner_review` açıkken tek code-owner varsa, o kişi
-#   KENDİ PR'ını onaylayamaz (GitHub kuralı) → hiçbir PR merge edilemez. Çözüm:
-#   ruleset'e `bypass_actors: [{OrganizationAdmin, bypass_mode: pull_request}]` ekle.
-#   Bu bypass DAR: PR zorunlu kalır, main'e doğrudan push YOK, CI atlanamaz;
-#   yalnız "birinin onaylaması" şartı aşılır. (2026-07-09 dersi.)
+# KURULUM (init_project bunu YAPMAZ — repo ayarı, elle/gh ile):
+#   1. `<OWNER_TEAM>` yerine gerçek bir GitHub team yaz (ör. @org/core-maintainers).
+#      TEAM kullan, kişi değil: bakımcı değişince bu dosyaya dokunulmaz. Team'in
+#      repoya EN AZ `write` erişimi olmalı — GitHub'ın CODEOWNERS şartı.
+#   2. Ruleset: `main-pr-required` → required_approving_review_count=1 +
+#      require_code_owner_review=true + required_status_checks=[guard işleri]
+#   3. ⚠ TEK-KİŞİ KİLİDİ: tek code-owner varsa o kişi KENDİ PR'ını onaylayamaz
+#      (GitHub kuralı) → hiçbir PR merge edilemez. Çözüm:
+#      bypass_actors: [{ actor_type: OrganizationAdmin, bypass_mode: pull_request }]
+#      Bu bypass DAR: PR zorunlu kalır, main'e doğrudan push YOK, CI atlanamaz;
+#      yalnız "birinin onaylaması" şartı aşılır.
+#   4. ⚠ Ruleset'i ilk push'tan SONRA ACTIVE et (PROJECT_BOOTSTRAP STEP 1).
 #
 # `*` BİLEREK YOK: sıradan kod/doküman PR'ları lidere takılmasın; onlar için
 # `required_approving_review_count=1` yeterli. Yalnız davranış-yüzeyi ve gate'ler
@@ -22,22 +25,23 @@
 
 # ── DAVRANIŞ YÜZEYİ — oturumun ne yapabileceğini belirler ────────────────────
 # Hook/permission/MCP değişikliği = bir güvenlik katmanının sessizce kalkması.
-CLAUDE.md                        @ix-works/core-maintainers
-**/CLAUDE.md                     @ix-works/core-maintainers
-CLAUDE.local.md                  @ix-works/core-maintainers
-.claude/**                       @ix-works/core-maintainers
-.mcp.json                        @ix-works/core-maintainers
-project.yaml                     @ix-works/core-maintainers
-scripts/hook_shim.py             @ix-works/core-maintainers
+CLAUDE.md                        <OWNER_TEAM>
+**/CLAUDE.md                     <OWNER_TEAM>
+CLAUDE.local.md                  <OWNER_TEAM>
+.claude/**                       <OWNER_TEAM>
+.mcp.json                        <OWNER_TEAM>
+project.yaml                     <OWNER_TEAM>
+scripts/hook_shim.py             <OWNER_TEAM>
 
 # ── PROJE-ÖZEL GATE'LER + YÖNETİŞİM ─────────────────────────────────────────
-# Bir validator'ın sessizce 0 dosya taraması "[OK]" görünür (CORE-01 dersi).
-scripts/validators-local/**       @ix-works/core-maintainers
-governance/decisions/**           @ix-works/core-maintainers
-governance/deferred-triggers.md   @ix-works/core-maintainers
+# Bir validator'ın sessizce 0 dosya taraması "[OK]" görünür → gate değişikliği
+# code-owner gözünden geçer (CORE-01 dersi, 2026-07-09).
+scripts/validators-local/**       <OWNER_TEAM>
+governance/decisions/**           <OWNER_TEAM>
+governance/deferred-triggers.md   <OWNER_TEAM>
 
 # ── SAP BAĞLANTI / TIER (`.conn_adt` gitignore'lu; şablonlar korunur) ────────
-conn/**                          @ix-works/core-maintainers
+conn/**                          <OWNER_TEAM>
 
 # ── CI + BU DOSYA (korumanın kendisi) ───────────────────────────────────────
-.github/**                       @ix-works/core-maintainers
+.github/**                       <OWNER_TEAM>
