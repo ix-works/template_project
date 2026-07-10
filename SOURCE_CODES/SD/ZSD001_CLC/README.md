@@ -1,6 +1,6 @@
-# ZSD001_CLC — Ornek paket — referans iskelet
+# ZSD001_CLC — Ornek paket (demo)
 
-> **Modül:** SD | **Başlangıç:** 2026-07-09 | **Owner:** <OWNER>
+> **Modül:** SD | **Başlangıç:** 2026-07-10 | **Owner:** <OWNER>
 
 ## İçerik
 
