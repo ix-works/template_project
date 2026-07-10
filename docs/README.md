@@ -1,16 +1,20 @@
-# docs/ — Mimari Dokümantasyonu (ayna)
+# docs/ — proje dokümantasyonu
 
-| Dosya | İçerik | Kaynak |
-|---|---|---|
-| `ix-works-mimari-kilavuzu.md` | Tam referans belge (17 bölüm + ekler) | **`DEV_CORE/docs/`** |
+Bu dizin **proje-özel** belgeler içindir.
 
-> **Bu dizin bir AYNADIR, kanonik kaynak değildir.** Kanonik dosya
-> `DEV_CORE/docs/ix-works-mimari-kilavuzu.md`'dir; buradaki kopya **bire bir aynı** olmalıdır.
+## Mimari kılavuzu burada TUTULMAZ
+
+Kanonik belge tek yerde yaşar:
+
+- **`core/docs/ix-works-mimari-kilavuzu.md`** — junction üzerinden bu projeden de okunur.
+- Kaynak repo: [`ix-works/DEV_CORE`](https://github.com/ix-works/DEV_CORE) → `docs/`
+
+> **Neden kopya yok.** 2026-07-10'da bu belge buraya kopyalandı. Kopya kaçınılmaz olarak
+> bayatlar; bayatlamasın diye bir tazelik gate'i eklendi; o gate CI'da (core'un `main`'i
+> klonlandığı için) kaçınılmaz kırmızı verdi; kırmızı bypass edildi; bypass'ı önlemek için
+> bir guard kuralı daha eklendi. **Kural kuralı doğurdu.**
 >
-> Kopya sessizce bayatlamasın diye `check_docs_mirror.py` (C-DOC-01) gate'i eşliği zorlar:
-> `run_all_validators` ve pre-commit'te koşar, fark varsa FAIL verir.
+> Kök sebep kural eksikliği değil, **gereksiz çoğaltmaydı.** Kopya kaldırıldı; iki gate
+> birden düştü. Ders `ADR 0019` ekine (gate-moratoryumu) yazıldı.
 >
-> **Onarım:** `python core/scripts/sync_docs_mirror.py`
->
-> Belgeyi **burada düzenlemeyin.** Değişiklik DEV_CORE'da PR ile yapılır, sonra ayna
-> senkronlanır (tek-kaynak ilkesi, ADR 0020).
+> **Tek kaynak ilkesi (ADR 0020): metodoloji kopyalanmaz, junction'la görülür.**
