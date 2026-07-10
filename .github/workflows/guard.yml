@@ -16,6 +16,11 @@ on:
   push:
   pull_request:
 
+# F1 fix (2026-07-10): commits/{sha}/pulls sorgusu icin pull-requests:read SART (403 fix).
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   leak:
     name: core-leak
@@ -73,6 +78,7 @@ jobs:
                 # geçmiştir, "bypass" DEĞİLDİR (2026-07-10 fix). Commit merged PR'a bağlı mı?
                 MERGED_PR=$(gh api "repos/$REPO/commits/$AFTER/pulls" \
                               --jq '[.[]|select(.merged_at!=null)]|length' 2>/dev/null || echo 0)
+                echo "$MERGED_PR" | grep -qE '^[0-9]+$' || MERGED_PR=0
                 if [ "${MERGED_PR:-0}" -gt 0 ]; then
                   echo "$TOUCHED"
                   echo "OK — davranış-yüzeyi değişti ama MERGED PR'dan geldi (geçti; review korundu)"
