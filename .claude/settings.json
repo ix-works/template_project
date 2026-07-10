@@ -22,7 +22,8 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Bash|mcp__sap-adt__.*",
+        "_comment": "PowerShell + NotebookEdit dahil (2026-07-10): guard kabuk-kurallari her iki kabuk yuzeyinde, GENERICIZE-LEAK NotebookEdit'te de tetiklenmeli. guard_conformance.py kablolamayi zorlar.",
+        "matcher": "Bash|PowerShell|mcp__sap-adt__.*",
         "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "pre_tool_guard"] } ]
       },
       {
@@ -31,6 +32,10 @@
           { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "pre_tool_guard"] },
           { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "pull_before_edit"] }
         ]
+      },
+      {
+        "matcher": "NotebookEdit",
+        "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "pre_tool_guard"] } ]
       },
       {
         "matcher": "Agent",
