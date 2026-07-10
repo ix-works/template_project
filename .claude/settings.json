@@ -43,6 +43,11 @@
         "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "sap_worktype_hint"] } ]
       },
       {
+        "_comment": "itg_backstop (2026-07-10): ilk SAP-tool'unda ITG-marker yoksa ITG protokolunu enjekte eder (prompt-keyword regex'in kacirdigi talepler icin deterministik net). Non-blocking.",
+        "matcher": "mcp__sap-adt__.*",
+        "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "itg_backstop"] } ]
+      },
+      {
         "matcher": "Agent",
         "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "watchdog_launch"] } ]
       }
