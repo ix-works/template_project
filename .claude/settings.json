@@ -38,6 +38,11 @@
         "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "pre_tool_guard"] } ]
       },
       {
+        "_comment": "sap_worktype_hint (2026-07-10): SAP-yazma tool'unda gercek obje-tipinden deterministik worktype-checklist hatirlatmasi (prompt-keyword degil). Non-blocking.",
+        "matcher": "mcp__sap-adt__adt_(push_source|activate|dtel_create|domain_create|struct_create|publish_service)",
+        "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "sap_worktype_hint"] } ]
+      },
+      {
         "matcher": "Agent",
         "hooks": [ { "type": "command", "command": "python", "args": ["${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py", "watchdog_launch"] } ]
       }
