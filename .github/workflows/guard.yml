@@ -46,6 +46,8 @@ jobs:
           AFTER: ${{ github.sha }}
           REF: ${{ github.ref }}
           BASE: ${{ github.event.pull_request.base.sha }}
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           SURFACE='CLAUDE.md */CLAUDE.md .claude/* .mcp.json project.yaml scripts/hook_shim.py'
           list_touched() {
@@ -67,9 +69,18 @@ jobs:
             if [ "$PARENTS" -lt 3 ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
               TOUCHED=$(list_touched "$BEFORE" "$AFTER")
               if [ -n "$TOUCHED" ]; then
-                echo "$TOUCHED"
-                echo "::error::main'e DOĞRUDAN push davranış-yüzeyine dokunuyor (yalnız onaylı PR)"
-                exit 1
+                # SQUASH-MERGE de tek-parent'lıdır ama MERGED PR'dan gelir → review'dan
+                # geçmiştir, "bypass" DEĞİLDİR (2026-07-10 fix). Commit merged PR'a bağlı mı?
+                MERGED_PR=$(gh api "repos/$REPO/commits/$AFTER/pulls" \
+                              --jq '[.[]|select(.merged_at!=null)]|length' 2>/dev/null || echo 0)
+                if [ "${MERGED_PR:-0}" -gt 0 ]; then
+                  echo "$TOUCHED"
+                  echo "OK — davranış-yüzeyi değişti ama MERGED PR'dan geldi (geçti; review korundu)"
+                else
+                  echo "$TOUCHED"
+                  echo "::error::main'e DOĞRUDAN push davranış-yüzeyine dokunuyor (yalnız onaylı PR)"
+                  exit 1
+                fi
               fi
             fi
           fi
