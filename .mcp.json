@@ -8,6 +8,15 @@
         "PYTHONIOENCODING": "utf-8",
         "PYTHONPATH": "${CLAUDE_PROJECT_DIR:-.}/core"
       }
+    },
+    "sap-gui": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_sap_gui.server", "--read-only", "--profile", "exploration",
+               "--audit-log", ".tmp/sapgui-audit.jsonl"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
     }
   }
 }
