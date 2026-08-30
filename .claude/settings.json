@@ -2,6 +2,11 @@
   "_comment": "PROJE settings şablonu — init_project.py bundan üretir. TÜM hook'lar proje-lokal hook_shim.py üzerinden (D15: kopuk-junction'da net hata; runpy=+0ms Ö2). Drift kontrolü: session_start D7. Always-allow YASAĞI (D32): SAP-yazma/davranış-yüzeyi araçlarına verilmez.",
   "_comment_yorumlar": "YORUMLAR ÜST SEVİYEDE durur ya da bir hook-BLOĞUNUN içinde ('_comment' alanı). 'hooks' NESNESİNİN doğrudan içine yazılan anahtar bir OLAY adı sanılır (2026-07-10'da bu hata yapıldı).",
   "_comment_instructions_loaded": "InstructionsLoaded (2026-07-10): talimat-dosyası yüklemesi SESSİZDİR — AGENTS.md aylarca yüklenmeden 'yüklendi' teyidi verildi; dokümante 'paths:' frontmatter'ı sessizce çalışmaz (anthropics/claude-code#17204); core/ bir junction'dır (D29). Hook BLOKLAMAZ, yalnız .tmp/instructions-loaded.log'a zaman/matcher/yol yazar → glob-tetiklemeli L1b kuralının GERÇEKTEN yüklendiği kanıtlanabilsin. matcher=path_glob_match görünmüyorsa kural ÖLÜDÜR.",
+  "_comment_permissions_allow": "allow listesi YALNIZ salt-okunur analiz uçları + validator koşumu içindir (D32: always-allow yasağı SAP-YAZMA uçlarına bakar — adt_create/adt_update/adt_activate/transport-release ASLA buraya girmez; onlar izin sorusu üretmeye devam eder). 2026-08-19: 10 salt-okur MCP ucu + 2 validator (run_review, check_abaplint) TD'de aylarca ELLE eklenmiş, template'te yoktu → her oturum 'settings.json template'ten SAPMIS (D7)' uyarısı; ölçüldü, normalize JSON farkının TAMAMI bu 12 kalemdi. ⚠ Liste SIRASI D7 imzasına girer (sort_keys diziyi sıralamaz) — yeni kalem SONA eklenir, mevcut sıra karıştırılmaz.",
+  "_comment_env": "env bloğu ÜST DÜZEYDEDİR — 'hooks' nesnesinin içine yazılan bir anahtar Claude Code tarafından OLAY adı sanılır (2026-07-10'da bu hata yapıldı; C-TPL-01 şekil kontrolü de bunu ölçer). PYTHONUTF8=1: ad-hoc `python -c`/script koşumları Windows'ta konsol kod sayfasını (cp1252/cp1254) miras alır ve ASCII-dışı ilk karakterde UnicodeEncodeError ile ÖLÜR — araç bozuk sanılır, oysa yalnız çıktı kodlamasıdır. Canlı repro (2026-08-29, aynı script, aynı makine): env'siz `sys.stdout.encoding=cp1252` + UnicodeEncodeError, exit 1 · env'li `utf-8`, exit 0. 30 günlük ajan-transkript denetiminde bu sınıf tüm Python traceback'lerinin ~%53'üydü (235 vaka). ⚠ Bu env YALNIZ oturumun kendi süreçlerini kapsar: `tests/run_fixture_tests.py` ve CI bunu ENJEKTE ETMEZ (bilinçli — enjekte edilseydi lokalde yeşil olan koşucu CI'da kırmızı olurdu).",
+  "env": {
+    "PYTHONUTF8": "1"
+  },
   "statusLine": {
     "type": "command",
     "command": "python \"${CLAUDE_PROJECT_DIR}/core/scripts/statusline.py\"",
@@ -95,6 +100,7 @@
         ]
       },
       {
+        "_comment": "infra_write_guard 2026-08-19'da EKLENDI (kullanici talimati, AYRI ve ACIK onayla): infra yuzeyine (hook/validator/gate/pre-commit/MCP/paylasilan core-scripts) ANA OTURUMDAN dogrudan yazim BLOKLANIR (exit 2); `agent_type == infra-expert` MUAF (payload semasi olculdu: ana oturumda agent_type/agent_id anahtarlari YOKTUR). Bypass bayragi bilincli olarak YOKTUR; cikis yolu kullanicidan AYRI onaydir. Korpus: tests/fixtures/infra_write_guard.",
         "matcher": "Edit|Write|MultiEdit",
         "hooks": [
           {
@@ -110,7 +116,29 @@
             "command": "python",
             "args": [
               "${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py",
+              "infra_write_guard"
+            ]
+          },
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py",
               "pull_before_edit"
+            ]
+          }
+        ]
+      },
+      {
+        "_comment": "infra_write_guard KABUK KOLU 2026-08-29'da EKLENDI (kayit #47, KULLANICI KARARI: 'dar kapsam + log, blok yok'). AYRI blok, bilincli: yukaridaki Edit|Write|MultiEdit blogu pre_tool_guard + pull_before_edit'i de tasir; matcher'a 'Bash' eklemek o iki hook'u da her Bash cagrisina baglardi (olculmemis yayilim). Bu blokta hook YALNIZ `sed -i <yol>` / `> <yol>` / `tee <yol>` kaliplarindan hedef cikarir, hedef korunan infra yuzeyindeyse stderr'e GORUNUR NOT basar ve exit 0 doner - BLOKLAMAZ. Yol cikarilamiyorsa (heredoc, python -c, cp) SUSAR. Gerekce: fiil-kara-listesi 2026-07-10'da 6 yoldan sizdi; yanlis-pozitif ureten guard guard'sizliktan kotudur. Korpus: tests/fixtures/infra_write_guard (S8, S10-S13, K8).",
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py",
+              "infra_write_guard"
             ]
           }
         ]
@@ -173,7 +201,7 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit",
+        "matcher": "Edit|Write|MultiEdit|Bash",
         "hooks": [
           {
             "type": "command",
@@ -186,7 +214,7 @@
         ]
       },
       {
-        "matcher": "mcp__sap-adt__.*",
+        "matcher": "mcp__sap-adt__.*|Bash",
         "hooks": [
           {
             "type": "command",
@@ -226,20 +254,6 @@
           }
         ]
       }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python",
-            "args": [
-              "${CLAUDE_PROJECT_DIR}/scripts/hook_shim.py",
-              "watchdog_stop"
-            ]
-          }
-        ]
-      }
     ]
   },
   "permissions": {
@@ -252,7 +266,19 @@
       "Bash(python core/scripts/validators/run_all_validators.py:*)",
       "Bash(python core/scripts/build_package_index.py)",
       "Bash(python core/scripts/sprint_gate_check.py:*)",
-      "Bash(python core/scripts/td_spec_check.py:*)"
+      "Bash(python core/scripts/td_spec_check.py:*)",
+      "mcp__sap-adt__adt_sql_query",
+      "mcp__sap-adt__adt_grep_source",
+      "mcp__sap-adt__adt_table_read",
+      "mcp__sap-adt__adt_where_used",
+      "mcp__sap-adt__adt_inactive_objects",
+      "mcp__sap-adt__adt_atc_check",
+      "mcp__sap-adt__adt_enhancements",
+      "mcp__sap-adt__adt_package_contents",
+      "mcp__sap-adt__adt_dump_list",
+      "mcp__sap-gui__sap_list_connections",
+      "Bash(python core/scripts/validators/run_review.py:*)",
+      "Bash(python core/scripts/validators/check_abaplint.py:*)"
     ],
     "ask": [
       "Bash(rm -rf:*)",

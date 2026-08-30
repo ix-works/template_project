@@ -1,4 +1,4 @@
-<!-- uretim: 2026-08-12T23:17:51+03:00 · core-commit: c6e53c6 — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-08-30T14:57:02+03:00 · core-commit: 5862d6b — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,7 +13,7 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (49 dosya)
+## `core/playbook/` (50 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/adt-cds.md`](../core/playbook/adt-cds.md) — CDS View (DDLS/DF)
@@ -45,11 +45,12 @@
 - [`core/playbook/checklists/ui-freestyle-creation.md`](../core/playbook/checklists/ui-freestyle-creation.md) — Checklist — Freestyle UI5 (OData V2 / RAP tüketen) Oluşturma
 - [`core/playbook/coding-patterns.md`](../core/playbook/coding-patterns.md) — ABAP Coding Patterns — Range, FOR ALL ENTRIES, İç Tablo, Kur Dönüşümü
 - [`core/playbook/howto-abap-email.md`](../core/playbook/howto-abap-email.md) — ABAP'ten E-posta Gönderme — HTML gövde (+ ek-dosya) · `SO_DOCUMENT_SEND_API1`
+- [`core/playbook/howto-belge-canli-teyit-turu.md`](../core/playbook/howto-belge-canli-teyit-turu.md) — HOWTO — Belge ↔ Canlı Teyit Turu (TS build'e girmeden önce)
 - [`core/playbook/howto-classic-dynpro-datafield-screens.md`](../core/playbook/howto-classic-dynpro-datafield-screens.md) — Datafield'lı (DDIC yapıya bağlı) klasik Dynpro diyalog ekranı üretimi — karar ağacı, arama-yardımı mekanizmaları, üreteç/CUA turu, doğrulama protokolü
 - [`core/playbook/howto-cok-katmanli-degisiklik.md`](../core/playbook/howto-cok-katmanli-degisiklik.md) — HOWTO — Çapraz-kesen (çok katmanlı) davranış değişikliği nasıl yönetilir
 - [`core/playbook/howto-delete-guard.md`](../core/playbook/howto-delete-guard.md) — HOWTO — Silme Kontrolü (delete guard): backend kuralından kullanıcının gördüğü mesaja
 - [`core/playbook/howto-document-lock.md`](../core/playbook/howto-document-lock.md) — How-To: VA02-Tarzı Belge Kilidi (App-Level, ortak ZSD000)
-- [`core/playbook/howto-dynpro-gui-status-generation.md`](../core/playbook/howto-dynpro-gui-status-generation.md) — Klasik Dynpro ekranı + GUI status'u AI'ın RFC FM ile (SOAP-RFC, dialog context) üretmesi
+- [`core/playbook/howto-dynpro-gui-status-generation.md`](../core/playbook/howto-dynpro-gui-status-generation.md) — Klasik Dynpro ekranı + GUI status'un ortak üreteç FM ile (SOAP-RFC, dialog context) üretilmesi — 16-parametrelik imza, donör seçimi, ekran alanı/buton üretimi, CUA merge, doğrulama protokolü
 - [`core/playbook/howto-infra-fix-proseduru.md`](../core/playbook/howto-infra-fix-proseduru.md) — HOWTO — İnfra-Fix Prosedürü: DONDUR → SINIFLA → (EXPRESS | KUYRUK) → İNFRA-EXPERT
 - [`core/playbook/howto-kullanici-dokumani-pdf-ekran-goruntulu.md`](../core/playbook/howto-kullanici-dokumani-pdf-ekran-goruntulu.md) — How-To: Markdown Dökümanı → Ekran Görüntülü Şık PDF (KD/FS/TS)
 - [`core/playbook/howto-packing-instruction-consumption.md`](../core/playbook/howto-packing-instruction-consumption.md) — How-To — Ambalajlama Talimatı Tüketimi (POP/POF → kasa + kasa-içi adet)
@@ -115,4 +116,4 @@
 
 ---
 
-**Toplam 88 dokuman.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 89 dokuman.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
