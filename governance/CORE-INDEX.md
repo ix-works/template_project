@@ -1,4 +1,4 @@
-<!-- uretim: 2026-09-12T23:16:55+03:00 · core-commit: 0e30be9 — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-09-25T17:58:48+03:00 · core-commit: 635ad3e — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,7 +13,7 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (50 dosya)
+## `core/playbook/` (52 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/README.md`](../core/playbook/README.md) — Playbook — SAP ADT Operasyonel Pattern Bankası
@@ -47,6 +47,8 @@
 - [`core/playbook/coding-patterns.md`](../core/playbook/coding-patterns.md) — ABAP Coding Patterns — Range, FOR ALL ENTRIES, İç Tablo, Kur Dönüşümü
 - [`core/playbook/howto-abap-email.md`](../core/playbook/howto-abap-email.md) — ABAP'ten E-posta Gönderme — HTML gövde (+ ek-dosya) · `SO_DOCUMENT_SEND_API1`
 - [`core/playbook/howto-belge-canli-teyit-turu.md`](../core/playbook/howto-belge-canli-teyit-turu.md) — HOWTO — Belge ↔ Canlı Teyit Turu (TS build'e girmeden önce)
+- [`core/playbook/howto-cekirdek-bulgu-bildirimi.md`](../core/playbook/howto-cekirdek-bulgu-bildirimi.md) — HOWTO — Çekirdekte bir şeyi değiştirmek isteyen TÜKETİCİ klonu ne yapar?
+- [`core/playbook/howto-cekirdek-guncelleme.md`](../core/playbook/howto-cekirdek-guncelleme.md) — HOWTO — Çekirdek güncellemesi (`core güncelle` / `/core-guncelle`)
 - [`core/playbook/howto-classic-dynpro-datafield-screens.md`](../core/playbook/howto-classic-dynpro-datafield-screens.md) — Datafield'lı (DDIC yapıya bağlı) klasik Dynpro diyalog ekranı üretimi — karar ağacı, arama-yardımı mekanizmaları, üreteç/CUA turu, doğrulama protokolü
 - [`core/playbook/howto-cok-katmanli-degisiklik.md`](../core/playbook/howto-cok-katmanli-degisiklik.md) — HOWTO — Çapraz-kesen (çok katmanlı) davranış değişikliği nasıl yönetilir
 - [`core/playbook/howto-delete-guard.md`](../core/playbook/howto-delete-guard.md) — HOWTO — Silme Kontrolü (delete guard): backend kuralından kullanıcının gördüğü mesaja
@@ -66,7 +68,7 @@
 - [`core/playbook/ui-backend-rap.md`](../core/playbook/ui-backend-rap.md) — UI Uygulaması RAP Backend — Operasyonel Tecrübe Bankası
 - [`core/playbook/ui-freestyle-odata-v2.md`](../core/playbook/ui-freestyle-odata-v2.md) — Freestyle UI5 + OData V2 (RAP tüketen) — Operasyonel Tecrübe Bankası
 
-## `core/standards/` (10 dosya)
+## `core/standards/` (11 dosya)
 
 - [`core/standards/01-naming.md`](../core/standards/01-naming.md) — NTTDATA ABAP Development Naming Guideline
 - [`core/standards/02-coding-backend.md`](../core/standards/02-coding-backend.md) — OpenCode / Opus — SAP S/4HANA Geliştirme Kuralları
@@ -77,6 +79,7 @@
 - [`core/standards/07-output-forms.md`](../core/standards/07-output-forms.md) — Çıktı / Form Standardı — Adobe Forms (+ SmartForms/SAPscript)
 - [`core/standards/08-classic-gui-f1-help.md`](../core/standards/08-classic-gui-f1-help.md) — Klasik GUI Uygulama — In-System Kullanıcı Dokümanı (F1 / SE61) Standardı
 - [`core/standards/09-packing-instruction-consumption.md`](../core/standards/09-packing-instruction-consumption.md) — SAP Ambalajlama Talimatı (Packing Instruction) TÜKETİMİ — Standart
+- [`core/standards/10-standart-veriye-yazma-api-secimi.md`](../core/standards/10-standart-veriye-yazma-api-secimi.md) — Standart Veriye Yazma — API Seçimi Karar Ağacı
 - [`core/standards/README.md`](../core/standards/README.md) — Standards — Kurumsal & Proje Standartları
 
 ## `core/governance/decisions/` (22 dosya)
@@ -104,6 +107,10 @@
 - [`core/governance/decisions/0022-intake-triage-gate.md`](../core/governance/decisions/0022-intake-triage-gate.md) — ADR 0022 — Intake Triage Gate (ITG)
 - [`core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md`](../core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md) — ADR 0023 — Hook kablolaması plugin'e TAŞINMAZ (fail-closed-on-absence ifade edilemez)
 
+## `core/claude/templates/` (1 dosya)
+
+- [`core/claude/templates/spawn-brief.md`](../core/claude/templates/spawn-brief.md) — SPAWN-BRİFİNG ŞABLONU (R2 — denetim 2026-07-31; Anthropic 4-alan deseni + TD ekleri)
+
 ## `core/governance/` (7 dosya)
 
 - [`core/governance/agent-teams-operating-model.md`](../core/governance/agent-teams-operating-model.md) — Agent Teams İşletim Modeli
@@ -114,6 +121,22 @@
 - [`core/governance/tooling-radar.md`](../core/governance/tooling-radar.md) — Genel Agent-Dev Tooling Radar
 - [`core/governance/vscode-setup.md`](../core/governance/vscode-setup.md) — VS Code Eklenti & Ayar Kurulumu — <PROJECT_NAME>
 
+## Kod isaretcileri — `core/tests/` (3 dosya; KOD, dokuman degil)
+
+> **Bu bolum dokuman DEGILDIR — kod isaretcisidir.** Yalniz `core/tests/*.py` (duz; alt
+> dizin yok) listelenir; ozet = modul docstring'inin ILK satiri.
+> **Mutasyon yontemi** (fixture-ici `--mutasyon-<kip>`, sandbox, capa `count != 1` ise
+> `[DOGRULANAMADI]` + exit 2): `core/playbook/howto-infra-fix-proseduru.md` §D2.
+> **Fixture korpuslari:** `core/tests/fixtures/<ad>/run.py` — burada TEK TEK LISTELENMEZ
+> (her infra PR'i fixture ekler; liste basilsaydi indeks her PR'da bayatlardi). Bul:
+> `find -L core/tests/fixtures -name run.py` · mutasyon kipli olanlar:
+> `rg -l -g run.py -- --mutasyon core/tests/fixtures` · taban + tum kipler tek komut:
+> `python core/tests/run_battery.py <fixture-adi>`.
+
+- (kod) [`core/tests/run_battery.py`](../core/tests/run_battery.py) — run_battery.py — TEK komutla fixture BATARYASI (taban + tüm mutasyon kipleri).
+- (kod) [`core/tests/run_fixture_tests.py`](../core/tests/run_fixture_tests.py) — run_fixture_tests.py — bozuk-girdi (negatif-test) korpuslarinin TEK giris noktasi.
+- (kod) [`core/tests/run_guard_fixture_tests.py`](../core/tests/run_guard_fixture_tests.py) — run_guard_fixture_tests.py — pre_tool_guard PAYLOAD fixture korpusu (kalici, agsiz).
+
 ---
 
-**Toplam 89 dokuman.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 93 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
