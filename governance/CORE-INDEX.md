@@ -1,4 +1,4 @@
-<!-- uretim: 2026-09-25T17:58:48+03:00 · core-commit: 635ad3e — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-10-03T16:00:09+03:00 · core-commit: fadf091 — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,7 +13,7 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (52 dosya)
+## `core/playbook/` (53 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/README.md`](../core/playbook/README.md) — Playbook — SAP ADT Operasyonel Pattern Bankası
@@ -60,6 +60,7 @@
 - [`core/playbook/howto-rap-eml-sales-order-create-update.md`](../core/playbook/howto-rap-eml-sales-order-create-update.md) — How-to: Released Sales Order BO (I_SalesOrderTP) EML ile create / update
 - [`core/playbook/howto-sistem-denetimi.md`](../core/playbook/howto-sistem-denetimi.md) — HOWTO — Sistem Denetimi Runbook'u (envanter + hata-tekrarı + verimlilik + sadeleştirme)
 - [`core/playbook/howto-talimat-dosyasi-bakimi.md`](../core/playbook/howto-talimat-dosyasi-bakimi.md) — HOWTO — Talimat-Dosyası Bakımı (CLAUDE.md · rules · auto-memory)
+- [`core/playbook/howto-ui-kaynagi-geri-kurma.md`](../core/playbook/howto-ui-kaynagi-geri-kurma.md) — How-To: UI kaynağı yok ya da başka makinede revize edildi — BSP'den geri kur, eşle, güvenli deploy et
 - [`core/playbook/intake-triage.md`](../core/playbook/intake-triage.md) — Geliştirme talebi alım protokolü — kapsam-sınıflama + 3-eksen araştırma + kanıtlı değerlendirme
 - [`core/playbook/known-errors.md`](../core/playbook/known-errors.md) — Bilinen Hatalar ve Çözümlü Durumlar
 - [`core/playbook/lessons-learned.md`](../core/playbook/lessons-learned.md) — Tekrarlayan hata pattern'leri ve trigger phrases
@@ -139,4 +140,4 @@
 
 ---
 
-**Toplam 93 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 94 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
