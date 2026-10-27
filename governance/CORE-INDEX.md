@@ -1,4 +1,4 @@
-<!-- uretim: 2026-10-03T16:00:09+03:00 · core-commit: fadf091 — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-10-27T15:49:27+03:00 · core-commit: d2799da — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,7 +13,7 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (53 dosya)
+## `core/playbook/` (66 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/README.md`](../core/playbook/README.md) — Playbook — SAP ADT Operasyonel Pattern Bankası
@@ -45,7 +45,8 @@
 - [`core/playbook/checklists/ui-backend-rap-creation.md`](../core/playbook/checklists/ui-backend-rap-creation.md) — Checklist — UI Uygulaması RAP Backend Oluşturma
 - [`core/playbook/checklists/ui-freestyle-creation.md`](../core/playbook/checklists/ui-freestyle-creation.md) — Checklist — Freestyle UI5 (OData V2 / RAP tüketen) Oluşturma
 - [`core/playbook/coding-patterns.md`](../core/playbook/coding-patterns.md) — ABAP Coding Patterns — Range, FOR ALL ENTRIES, İç Tablo, Kur Dönüşümü
-- [`core/playbook/howto-abap-email.md`](../core/playbook/howto-abap-email.md) — ABAP'ten E-posta Gönderme — HTML gövde (+ ek-dosya) · `SO_DOCUMENT_SEND_API1`
+- [`core/playbook/howto-abap-email.md`](../core/playbook/howto-abap-email.md) — ABAP'ten E-posta Gönderme — HTML gövde (+ ek-dosya) · `SO_DOCUMENT_SEND_API1` / `CL_BCS`
+- [`core/playbook/howto-atc-duzeltme-kaliplari.md`](../core/playbook/howto-atc-duzeltme-kaliplari.md) — HOWTO — ATC bulgusu düzeltme kalıpları (önce FAE / iç içe okuma)
 - [`core/playbook/howto-belge-canli-teyit-turu.md`](../core/playbook/howto-belge-canli-teyit-turu.md) — HOWTO — Belge ↔ Canlı Teyit Turu (TS build'e girmeden önce)
 - [`core/playbook/howto-cekirdek-bulgu-bildirimi.md`](../core/playbook/howto-cekirdek-bulgu-bildirimi.md) — HOWTO — Çekirdekte bir şeyi değiştirmek isteyen TÜKETİCİ klonu ne yapar?
 - [`core/playbook/howto-cekirdek-guncelleme.md`](../core/playbook/howto-cekirdek-guncelleme.md) — HOWTO — Çekirdek güncellemesi (`core güncelle` / `/core-guncelle`)
@@ -54,22 +55,34 @@
 - [`core/playbook/howto-delete-guard.md`](../core/playbook/howto-delete-guard.md) — HOWTO — Silme Kontrolü (delete guard): backend kuralından kullanıcının gördüğü mesaja
 - [`core/playbook/howto-document-lock.md`](../core/playbook/howto-document-lock.md) — How-To: VA02-Tarzı Belge Kilidi (App-Level, ortak ZSD000)
 - [`core/playbook/howto-dynpro-gui-status-generation.md`](../core/playbook/howto-dynpro-gui-status-generation.md) — Klasik Dynpro ekranı + GUI status'un ortak üreteç FM ile (SOAP-RFC, dialog context) üretilmesi — 16-parametrelik imza, donör seçimi, ekran alanı/buton üretimi, CUA merge, doğrulama protokolü
+- [`core/playbook/howto-ecc-s4-yeniden-yazim.md`](../core/playbook/howto-ecc-s4-yeniden-yazim.md) — HOWTO — ECC (legacy) geliştirmesini S/4'te YENİDEN YAZMAK
 - [`core/playbook/howto-infra-fix-proseduru.md`](../core/playbook/howto-infra-fix-proseduru.md) — HOWTO — İnfra-Fix Prosedürü: DONDUR → SINIFLA → (EXPRESS | KUYRUK) → İNFRA-EXPERT
 - [`core/playbook/howto-kullanici-dokumani-pdf-ekran-goruntulu.md`](../core/playbook/howto-kullanici-dokumani-pdf-ekran-goruntulu.md) — How-To: Markdown Dökümanı → Ekran Görüntülü Şık PDF (KD/FS/TS)
+- [`core/playbook/howto-kuyruk-dikis-sozlesmesi.md`](../core/playbook/howto-kuyruk-dikis-sozlesmesi.md) — HOWTO — "Kuyruk-dikiş" sözleşmesi: toplu yapay zekâ yargısını kodla dikmek
+- [`core/playbook/howto-lovc-belge-konfigurasyonu-okuma-yazma.md`](../core/playbook/howto-lovc-belge-konfigurasyonu-okuma-yazma.md) — HOWTO — Klasik varyant konfigürasyonu (LO-VC): satış belgesi konfigürasyonunu okuma ve değiştirme
 - [`core/playbook/howto-packing-instruction-consumption.md`](../core/playbook/howto-packing-instruction-consumption.md) — How-To — Ambalajlama Talimatı Tüketimi (POP/POF → kasa + kasa-içi adet)
+- [`core/playbook/howto-pdf-ads-xdp.md`](../core/playbook/howto-pdf-ads-xdp.md) — How-To: SFP form objesi OLMADAN PDF üretmek — AI'ın yazdığı XDP + `CL_FP_ADS_UTIL=>RENDER_PDF` (+ mail eki)
 - [`core/playbook/howto-rap-eml-sales-order-create-update.md`](../core/playbook/howto-rap-eml-sales-order-create-update.md) — How-to: Released Sales Order BO (I_SalesOrderTP) EML ile create / update
+- [`core/playbook/howto-sd-karakteristik-hizli-giris.md`](../core/playbook/howto-sd-karakteristik-hizli-giris.md) — HOWTO — Satış belgelerinde karakteristik değerlerin hızlı girişi (Mill Products)
 - [`core/playbook/howto-sistem-denetimi.md`](../core/playbook/howto-sistem-denetimi.md) — HOWTO — Sistem Denetimi Runbook'u (envanter + hata-tekrarı + verimlilik + sadeleştirme)
 - [`core/playbook/howto-talimat-dosyasi-bakimi.md`](../core/playbook/howto-talimat-dosyasi-bakimi.md) — HOWTO — Talimat-Dosyası Bakımı (CLAUDE.md · rules · auto-memory)
 - [`core/playbook/howto-ui-kaynagi-geri-kurma.md`](../core/playbook/howto-ui-kaynagi-geri-kurma.md) — How-To: UI kaynağı yok ya da başka makinede revize edildi — BSP'den geri kur, eşle, güvenli deploy et
 - [`core/playbook/intake-triage.md`](../core/playbook/intake-triage.md) — Geliştirme talebi alım protokolü — kapsam-sınıflama + 3-eksen araştırma + kanıtlı değerlendirme
 - [`core/playbook/known-errors.md`](../core/playbook/known-errors.md) — Bilinen Hatalar ve Çözümlü Durumlar
 - [`core/playbook/lessons-learned.md`](../core/playbook/lessons-learned.md) — Tekrarlayan hata pattern'leri ve trigger phrases
+- [`core/playbook/modules/referans/README.md`](../core/playbook/modules/referans/README.md) — Modül-bilgi katmanı — SAP fonksiyonel modüllerinin (SD/MM/FI...) standart referansı (tablo, BAPI, enhancement, SPRO, tcode, akış)
+- [`core/playbook/modules/referans/sd/bapi.md`](../core/playbook/modules/referans/sd/bapi.md) — SD BAPI / RFC FM referansı (standart belge yazma yolları)
+- [`core/playbook/modules/referans/sd/enhancements.md`](../core/playbook/modules/referans/sd/enhancements.md) — SD enhancement noktaları referansı (user-exit, BAdI, çıktı, VOFM, BTE)
+- [`core/playbook/modules/referans/sd/spro.md`](../core/playbook/modules/referans/sd/spro.md) — SD SPRO / customizing referansı (doküman tipleri, kopya kontrol, teslimat, çıktı)
+- [`core/playbook/modules/referans/sd/tables.md`](../core/playbook/modules/referans/sd/tables.md) — SD kilit tabloları (standart SAP referansı — okuma/farkındalık)
+- [`core/playbook/modules/referans/sd/tcodes.md`](../core/playbook/modules/referans/sd/tcodes.md) — SD transaction kodları referansı
+- [`core/playbook/modules/referans/sd/workflows.md`](../core/playbook/modules/referans/sd/workflows.md) — SD iş akışları referansı (order-to-cash, teslimat/sevkiyat akışı, akış kuralları)
 - [`core/playbook/modules/sd.md`](../core/playbook/modules/sd.md) — ITG modül kural-paketi (SD) — tetik-haritası + kontrol + soru + ders (bilgi-deposu DEĞİL)
 - [`core/playbook/odata-services.md`](../core/playbook/odata-services.md) — OData Services — Pricing Simulation, Function Import, UpdateSO, BAPIRET2
 - [`core/playbook/ui-backend-rap.md`](../core/playbook/ui-backend-rap.md) — UI Uygulaması RAP Backend — Operasyonel Tecrübe Bankası
 - [`core/playbook/ui-freestyle-odata-v2.md`](../core/playbook/ui-freestyle-odata-v2.md) — Freestyle UI5 + OData V2 (RAP tüketen) — Operasyonel Tecrübe Bankası
 
-## `core/standards/` (11 dosya)
+## `core/standards/` (14 dosya)
 
 - [`core/standards/01-naming.md`](../core/standards/01-naming.md) — NTTDATA ABAP Development Naming Guideline
 - [`core/standards/02-coding-backend.md`](../core/standards/02-coding-backend.md) — OpenCode / Opus — SAP S/4HANA Geliştirme Kuralları
@@ -81,6 +94,9 @@
 - [`core/standards/08-classic-gui-f1-help.md`](../core/standards/08-classic-gui-f1-help.md) — Klasik GUI Uygulama — In-System Kullanıcı Dokümanı (F1 / SE61) Standardı
 - [`core/standards/09-packing-instruction-consumption.md`](../core/standards/09-packing-instruction-consumption.md) — SAP Ambalajlama Talimatı (Packing Instruction) TÜKETİMİ — Standart
 - [`core/standards/10-standart-veriye-yazma-api-secimi.md`](../core/standards/10-standart-veriye-yazma-api-secimi.md) — Standart Veriye Yazma — API Seçimi Karar Ağacı
+- [`core/standards/11-clean-abap-ve-oo-alt-kumesi.md`](../core/standards/11-clean-abap-ve-oo-alt-kumesi.md) — Clean ABAP + OO Tasarım — Seçilmiş Alt Küme (stil rehberi, gate DEĞİL)
+- [`core/standards/12-clean-core-seviye-referansi.md`](../core/standards/12-clean-core-seviye-referansi.md) — Clean Core — `cleancore_policy` × Seviye (A–D) × Teknik — Referans Tablosu
+- [`core/standards/13-kural-yazim-standardi.md`](../core/standards/13-kural-yazim-standardi.md) — Kural Yazım Standardı — dört alan, kapsam koşulu, üç test
 - [`core/standards/README.md`](../core/standards/README.md) — Standards — Kurumsal & Proje Standartları
 
 ## `core/governance/decisions/` (22 dosya)
@@ -108,8 +124,10 @@
 - [`core/governance/decisions/0022-intake-triage-gate.md`](../core/governance/decisions/0022-intake-triage-gate.md) — ADR 0022 — Intake Triage Gate (ITG)
 - [`core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md`](../core/governance/decisions/0023-hook-kablolamasi-plugin-e-tasinmaz.md) — ADR 0023 — Hook kablolaması plugin'e TAŞINMAZ (fail-closed-on-absence ifade edilemez)
 
-## `core/claude/templates/` (1 dosya)
+## `core/claude/templates/` (3 dosya)
 
+- [`core/claude/templates/fs-ozet.md`](../core/claude/templates/fs-ozet.md) — FS Özeti — <Geliştirme adı>
+- [`core/claude/templates/integration-sheet.md`](../core/claude/templates/integration-sheet.md) — Entegrasyon Sayfası — <Akış adı>
 - [`core/claude/templates/spawn-brief.md`](../core/claude/templates/spawn-brief.md) — SPAWN-BRİFİNG ŞABLONU (R2 — denetim 2026-07-31; Anthropic 4-alan deseni + TD ekleri)
 
 ## `core/governance/` (7 dosya)
@@ -140,4 +158,4 @@
 
 ---
 
-**Toplam 94 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 112 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
