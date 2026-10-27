@@ -1,3 +1,18 @@
+# >>> IX-CORE GITIGNORE BLOK (team_setup yonetir; elle duzenleme — kaynak: core/scripts/init_project.py GITIGNORE) >>>
+conn/*
+!conn/*.template
+!conn/README.md
+!conn/.gitkeep
+SOURCE_CODES/**/ui/*/dist/
+SOURCE_CODES/**/ui/*/archive.zip
+/*.zip
+/*.7z
+/*.tar
+/*.tar.gz
+/*.tgz
+/*.bak
+scripts/hook_shim.py.yedek-*
+# <<< IX-CORE GITIGNORE BLOK <<<
 # ==== SIZINTI KİLİDİ (ADR 0020 — core içeriği proje reposuna GİREMEZ) ====
 /core/
 .claude/agents/
