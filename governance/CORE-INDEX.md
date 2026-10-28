@@ -1,4 +1,4 @@
-<!-- uretim: 2026-10-27T15:49:27+03:00 · core-commit: d2799da — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-10-28T09:34:16+03:00 · core-commit: dd9ba0f — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
