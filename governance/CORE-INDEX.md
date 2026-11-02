@@ -1,4 +1,4 @@
-<!-- uretim: 2026-10-28T09:34:16+03:00 · core-commit: dd9ba0f — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-11-02T22:30:50+03:00 · core-commit: b5b8040 — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,7 +13,7 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (66 dosya)
+## `core/playbook/` (70 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/README.md`](../core/playbook/README.md) — Playbook — SAP ADT Operasyonel Pattern Bankası
@@ -79,6 +79,10 @@
 - [`core/playbook/modules/referans/sd/workflows.md`](../core/playbook/modules/referans/sd/workflows.md) — SD iş akışları referansı (order-to-cash, teslimat/sevkiyat akışı, akış kuralları)
 - [`core/playbook/modules/sd.md`](../core/playbook/modules/sd.md) — ITG modül kural-paketi (SD) — tetik-haritası + kontrol + soru + ders (bilgi-deposu DEĞİL)
 - [`core/playbook/odata-services.md`](../core/playbook/odata-services.md) — OData Services — Pricing Simulation, Function Import, UpdateSO, BAPIRET2
+- [`core/playbook/templates/ui5-freestyle/README.md`](../core/playbook/templates/ui5-freestyle/README.md) — Freestyle UI5 şablonu — seçim ekranı → grid liste → değişiklik ekranı (OData V2)
+- [`core/playbook/templates/ui5-freestyle/backend-referans/README.md`](../core/playbook/templates/ui5-freestyle/backend-referans/README.md) — Varyant servisi — backend referansı (RAP, S/4HANA)
+- [`core/playbook/templates/ui5-freestyle/surum/1.120/README.md`](../core/playbook/templates/ui5-freestyle/surum/1.120/README.md) — Sürüm parçası — UI5 1.120 hattı (backend UI5 >= 1.120)
+- [`core/playbook/templates/ui5-freestyle/surum/1.71/README.md`](../core/playbook/templates/ui5-freestyle/surum/1.71/README.md) — Sürüm parçası — UI5 1.71 hattı
 - [`core/playbook/ui-backend-rap.md`](../core/playbook/ui-backend-rap.md) — UI Uygulaması RAP Backend — Operasyonel Tecrübe Bankası
 - [`core/playbook/ui-freestyle-odata-v2.md`](../core/playbook/ui-freestyle-odata-v2.md) — Freestyle UI5 + OData V2 (RAP tüketen) — Operasyonel Tecrübe Bankası
 
@@ -158,4 +162,4 @@
 
 ---
 
-**Toplam 112 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 116 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
