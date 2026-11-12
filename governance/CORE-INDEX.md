@@ -1,4 +1,4 @@
-<!-- uretim: 2026-11-08T16:38:47+03:00 · core-commit: 3353fca — bilgi satiri; tazelik kiyasinda yok sayilir -->
+<!-- uretim: 2026-11-12T14:45:52+03:00 · core-commit: 8565c9d — bilgi satiri; tazelik kiyasinda yok sayilir -->
 <!-- URETILMIS DOSYA — elle duzenleme. Uretici: core/scripts/build_core_index.py
      Tazelik gate'i: core/scripts/validators/check_core_index_fresh.py -->
 
@@ -13,13 +13,14 @@
 > · `rg -L --no-ignore <p>` · `find -L core`. Kokten path'siz arama = sessiz sifir.
 
 
-## `core/playbook/` (70 dosya)
+## `core/playbook/` (71 dosya)
 
 - [`core/playbook/00-discipline-and-principles.md`](../core/playbook/00-discipline-and-principles.md) — ADT Disiplini, Hızlı Erişim ve Genel Prensipler
 - [`core/playbook/README.md`](../core/playbook/README.md) — Playbook — SAP ADT Operasyonel Pattern Bankası
 - [`core/playbook/adt-cds.md`](../core/playbook/adt-cds.md) — CDS View (DDLS/DF)
 - [`core/playbook/adt-classes.md`](../core/playbook/adt-classes.md) — ABAP Class — Create, OSQLC ve Push+Activate Tam Akış
 - [`core/playbook/adt-domain-dtel.md`](../core/playbook/adt-domain-dtel.md) — DDIC Domain ve Data Element (DTEL)
+- [`core/playbook/adt-enhancement-spot-badi.md`](../core/playbook/adt-enhancement-spot-badi.md) — BAdI Enhancement Spot (ENHS/XSB) + BAdI Tanımı
 - [`core/playbook/adt-foundation.md`](../core/playbook/adt-foundation.md) — ADT Foundation — Logon, Download, Push, Lock, SQL, Paket, Transport, Search, Where-Used, ATC, OData Metadata
 - [`core/playbook/adt-fugr-functions.md`](../core/playbook/adt-fugr-functions.md) — Function Group (FUGR) ve Function Module (FM) ADT pattern'leri
 - [`core/playbook/adt-lock-objects.md`](../core/playbook/adt-lock-objects.md) — Lock Object (ENQU/DL)
@@ -162,4 +163,4 @@
 
 ---
 
-**Toplam 116 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
+**Toplam 117 dokuman · 3 kod isaretcisi.** Bu dosya uretilmistir; icerik degistiginde `build_core_index.py` yeniden kosulur.
